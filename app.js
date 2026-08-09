@@ -10,29 +10,22 @@ const english = document.querySelector('#dialogEnglish');
 const meta = document.querySelector('#detailMeta');
 const keywords = document.querySelector('#keywords');
 const meaning = document.querySelector('#meaning');
-const guidance = document.querySelector('#guidance');
 const languageSelect = document.querySelector('#language');
 
 const copy = {
   es: {
-    eyebrow: 'Guía de consulta · 78 cartas', languageLabel: 'Idioma', subtitle: 'Significados claros al derecho y al revés. Sin registro, anuncios ni pagos.',
+    eyebrow: 'Guía de consulta · 78 cartas', languageLabel: 'Idioma',
     search: 'Busca El Loco, The Fool, Queen of Cups…', searchLabel: 'Buscar una carta', all: 'Todas', major: 'Arcanos mayores', wands: 'Bastos', cups: 'Copas', swords: 'Espadas', pentacles: 'Oros',
     empty: 'No encuentro esa carta. Prueba el nombre en español o inglés.', source: 'Interpretaciones basadas en el dataset abierto de <a href="https://github.com/Tarotoo-com/tarotoo-tarot-dataset" target="_blank" rel="noreferrer">Tarotoo</a> (MIT), documentado a partir de A. E. Waite y otras fuentes históricas de la tradición Rider–Waite–Smith.',
-    disclaimer: 'Las cartas sirven como herramienta simbólica de reflexión; no sustituyen asesoramiento profesional.', upright: 'Al derecho', reversed: 'Invertida', general: 'General', love: 'Amor', career: 'Trabajo', howToRead: 'Cómo leerla:',
+    disclaimer: 'Las cartas sirven como herramienta simbólica de reflexión; no sustituyen asesoramiento profesional.', upright: 'Al derecho', reversed: 'Invertida', general: 'General', love: 'Amor', career: 'Trabajo',
     card: 'carta', cards: 'cartas', open: 'Abrir', majorMeta: 'Arcano mayor', minorMeta: 'Arcano menor', inner: 'En el plano interior o de crecimiento personal:', core: 'La clave general de la carta en esta posición es:',
-    generalGuide: 'Sitúa estos temas dentro de la pregunta concreta y observa qué detalles de la imagen y de las cartas vecinas los refuerzan. No la tomes como un resultado inevitable.',
-    loveGuide: 'Puede hablar del vínculo, de tu disposición afectiva o de la actitud de la otra persona. Diferencia lo que existe ahora de lo que deseas que ocurra.',
-    careerGuide: 'Puede señalar el clima laboral, una oportunidad, un obstáculo o la manera de actuar. Contrástala con los hechos antes de tomar una decisión profesional o económica.'
   },
   en: {
-    eyebrow: 'Reference guide · 78 cards', languageLabel: 'Language', subtitle: 'Clear upright and reversed meanings. No account, ads, or payments.',
+    eyebrow: 'Reference guide · 78 cards', languageLabel: 'Language',
     search: 'Search The Fool, El Loco, Queen of Cups…', searchLabel: 'Search for a card', all: 'All', major: 'Major Arcana', wands: 'Wands', cups: 'Cups', swords: 'Swords', pentacles: 'Pentacles',
     empty: 'No card found. Try its English or Spanish name.', source: 'Interpretations are based on the open <a href="https://github.com/Tarotoo-com/tarotoo-tarot-dataset" target="_blank" rel="noreferrer">Tarotoo</a> dataset (MIT), documented from A. E. Waite and other historical Rider–Waite–Smith sources.',
-    disclaimer: 'Tarot cards are a symbolic tool for reflection; they are not a substitute for professional advice.', upright: 'Upright', reversed: 'Reversed', general: 'General', love: 'Love', career: 'Career', howToRead: 'How to read it:',
+    disclaimer: 'Tarot cards are a symbolic tool for reflection; they are not a substitute for professional advice.', upright: 'Upright', reversed: 'Reversed', general: 'General', love: 'Love', career: 'Career',
     card: 'card', cards: 'cards', open: 'Open', majorMeta: 'Major Arcana', minorMeta: 'Minor Arcana', inner: 'For inner or personal growth:', core: 'The card’s general theme in this position is:',
-    generalGuide: 'Place these themes within the specific question and notice which details in the image and surrounding cards reinforce them. Do not treat the card as an inevitable outcome.',
-    loveGuide: 'It may describe the relationship, your emotional stance, or the other person’s attitude. Separate what is present now from what you hope will happen.',
-    careerGuide: 'It may point to the working climate, an opportunity, an obstacle, or a way of acting. Compare it with the facts before making professional or financial decisions.'
   }
 };
 
@@ -140,7 +133,6 @@ function updateReading() {
   } else {
     meaning.textContent = `${sentence(localized(current, key))} ${copy[language].core} ${sentence(core)}`;
   }
-  guidance.textContent = copy[language][`${context}Guide`];
 }
 
 grid.addEventListener('click', event => { const card = event.target.closest('.card'); if (card) openCard(card.dataset.id); });
@@ -159,4 +151,4 @@ dialog.addEventListener('click', event => { if (event.target === dialog) dialog.
 dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
 
 applyLanguage();
-if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js?v=2'));
+if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js?v=3'));
