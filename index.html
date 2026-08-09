@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171126">
+  <meta name="description" content="Guía gratuita y sin registro de las 78 cartas Smith-Waite, en español e inglés.">
+  <title>Tarot Smith-Waite</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="icon-192.png">
+  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <div class="eyebrow">Guía de consulta · 78 cartas</div>
+      <h1>Tarot <span>Smith-Waite</span></h1>
+      <p>Significados claros al derecho y al revés. Sin registro, anuncios ni pagos.</p>
+      <div class="actions">
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="search" type="search" autocomplete="off" placeholder="Busca El Loco, The Fool, Queen of Cups…" aria-label="Buscar una carta">
+        </label>
+        <button id="random" class="primary" type="button">✦ Sacar una carta</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <nav class="filters" aria-label="Filtrar por palo">
+      <button class="chip active" data-filter="all">Todas</button>
+      <button class="chip" data-filter="major">Mayores</button>
+      <button class="chip" data-filter="wands">Bastos</button>
+      <button class="chip" data-filter="cups">Copas</button>
+      <button class="chip" data-filter="swords">Espadas</button>
+      <button class="chip" data-filter="pentacles">Oros</button>
+    </nav>
+    <div id="count" class="count" aria-live="polite"></div>
+    <section id="grid" class="grid" aria-label="Cartas del tarot"></section>
+    <div id="empty" class="empty" hidden>No encuentro esa carta. Prueba el nombre en español o inglés.</div>
+  </main>
+
+  <footer>
+    <p>Interpretaciones basadas en el dataset abierto de <a href="https://github.com/Tarotoo-com/tarotoo-tarot-dataset" target="_blank" rel="noreferrer">Tarotoo</a> (MIT), documentado a partir de A. E. Waite y otras fuentes históricas de la tradición Rider–Waite–Smith.</p>
+    <p>Las cartas sirven como herramienta simbólica de reflexión; no sustituyen asesoramiento profesional.</p>
+  </footer>
+
+  <dialog id="cardDialog" aria-labelledby="dialogTitle">
+    <button id="close" class="close" aria-label="Cerrar">×</button>
+    <div class="detail">
+      <div class="detail__visual"><img id="detailImage" alt=""></div>
+      <article class="detail__content">
+        <div id="detailMeta" class="eyebrow"></div>
+        <h2 id="dialogTitle"></h2>
+        <p id="dialogEnglish" class="english"></p>
+        <div class="switch" role="group" aria-label="Orientación de la carta">
+          <button class="orientation active" data-orientation="upright">Al derecho</button>
+          <button class="orientation" data-orientation="reversed">Invertida</button>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Tipo de interpretación">
+          <button class="tab active" role="tab" data-context="general">General</button>
+          <button class="tab" role="tab" data-context="love">Amor</button>
+          <button class="tab" role="tab" data-context="career">Trabajo</button>
+        </div>
+        <section class="reading">
+          <div id="keywords" class="keywords"></div>
+          <p id="meaning"></p>
+          <div class="reading-note"><strong>Cómo leerla:</strong> <span id="guidance"></span></div>
+        </section>
+      </article>
+    </div>
+  </dialog>
+
+  <script src="cards.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
