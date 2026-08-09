@@ -73,6 +73,25 @@ dialog::backdrop { background: rgba(69, 48, 61, .42); backdrop-filter: blur(7px)
 .keywords { display: flex; gap: 7px; flex-wrap: wrap; }
 .keywords span { border: 1px solid #d6bcc4; color: #704052; background: #f8e9ec; border-radius: 999px; padding: 6px 9px; font-size: .77rem; }
 .reading > p { font-family: Georgia, serif; font-size: 1.2rem; line-height: 1.65; margin: 20px 0; }
+.deep-toggle { width: 100%; display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 8px; padding: 13px 16px; border: 1px solid #c99ca8; border-radius: 13px; background: #fff8f4; color: var(--wine); font: inherit; font-weight: 800; cursor: pointer; }
+.deep-toggle:hover, .deep-toggle:focus-visible { background: var(--wine-soft); outline: 2px solid transparent; }
+.deep-toggle span:first-child { color: var(--gold); font-size: 1.1rem; }
+.deep-dive { margin-top: 22px; padding-top: 23px; border-top: 1px solid var(--line); }
+.deep-dive__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; }
+.deep-dive h3 { margin: 5px 0 0; font: 500 clamp(1.6rem, 4vw, 2.2rem)/1.05 Georgia, serif; }
+.deep-dive h4 { margin: 0 0 9px; font: 700 1rem/1.3 Georgia, serif; color: var(--ink); }
+.deep-close { border: 0; border-radius: 999px; padding: 8px 12px; background: #f1e6e1; color: var(--muted); font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; }
+.deep-intro, .source-note { color: var(--muted); line-height: 1.55; }
+.deep-intro { margin: 12px 0 16px; }
+.correspondences { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 20px; }
+.correspondences span { border: 1px solid #dbc8b2; border-radius: 999px; padding: 6px 9px; background: #fff9ef; color: #655646; font-size: .75rem; }
+.deep-block { padding: 17px 0; border-top: 1px solid #eadfd8; }
+.deep-block p, .original-text p { margin: 0; font-family: Georgia, serif; font-size: 1.04rem; line-height: 1.7; }
+.source-note { padding: 12px 14px; border-radius: 10px; background: #f6eee7; font-size: .78rem; }
+.original-text { margin: 7px 0 18px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; }
+.original-text summary { padding: 13px 0; color: var(--wine); font-size: .86rem; font-weight: 800; cursor: pointer; }
+.original-text[open] { padding-bottom: 17px; }
+.original-text h4 { margin-top: 16px; }
 
 @media (max-width: 680px) {
   .hero { padding-left: 14px; padding-right: 14px; }
@@ -91,6 +110,8 @@ dialog::backdrop { background: rgba(69, 48, 61, .42); backdrop-filter: blur(7px)
   .tabs { justify-content: space-between; }
   .tab { flex: 1; }
   .reading > p { font-size: 1.08rem; }
+  .deep-dive__heading { align-items: center; }
+  .deep-block p, .original-text p { font-size: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }

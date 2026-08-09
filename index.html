@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="icon" href="icon-192.png">
   <link rel="preconnect" href="https://raw.githubusercontent.com">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <header class="hero">
@@ -75,11 +75,44 @@
           <div id="keywords" class="keywords"></div>
           <p id="meaning"></p>
         </section>
+        <button id="deepToggle" class="deep-toggle" type="button" aria-expanded="false" aria-controls="deepDive">
+          <span aria-hidden="true">✦</span>
+          <span data-i18n="deepButton">Profundizar en esta carta</span>
+        </button>
+        <section id="deepDive" class="deep-dive" hidden>
+          <div class="deep-dive__heading">
+            <div>
+              <div class="eyebrow" data-i18n="historicalSource">Fuente histórica · A. E. Waite</div>
+              <h3 data-i18n="deepTitle">Historia y simbolismo</h3>
+            </div>
+            <button id="deepClose" class="deep-close" type="button" data-i18n="deepClose">Cerrar</button>
+          </div>
+          <p class="deep-intro" data-i18n="deepIntro">Una traducción del texto que acompañó originalmente al mazo, separada de la interpretación moderna.</p>
+          <div id="correspondences" class="correspondences"></div>
+          <div class="deep-block">
+            <h4 data-i18n="symbolismTitle">Lo que muestra la imagen</h4>
+            <p id="deepDescription"></p>
+          </div>
+          <p id="briefHistoricalNote" class="source-note" hidden data-i18n="briefHistoricalNote">En esta carta Waite fue especialmente breve. Conservamos esa limitación en lugar de añadir simbolismo sin una fuente clara.</p>
+          <div class="deep-block">
+            <h4 id="traditionalHeading"></h4>
+            <p id="deepTraditional"></p>
+          </div>
+          <details class="original-text">
+            <summary data-i18n="originalText">Consultar el texto original en inglés</summary>
+            <h4 data-i18n="originalDescription">Descripción original</h4>
+            <p id="deepDescriptionEn" lang="en"></p>
+            <h4 data-i18n="originalMeaning">Significado tradicional original</h4>
+            <p id="deepTraditionalEn" lang="en"></p>
+          </details>
+          <p class="source-note" data-i18n-html="deepSource">Fuente: <a href="https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot" target="_blank" rel="noreferrer"><cite>The Pictorial Key to the Tarot</cite></a>, A. E. Waite (1910/1911), con ilustraciones de Pamela Colman Smith. Traducción automática revisable frente al original incluido arriba.</p>
+        </section>
       </article>
     </div>
   </dialog>
 
   <script src="cards.js?v=2"></script>
-  <script src="app.js?v=3"></script>
+  <script src="deep.js?v=4"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
