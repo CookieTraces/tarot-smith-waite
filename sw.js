@@ -1,8 +1,8 @@
-const CACHE='tarot-smith-waite-v5';
+const CACHE='tarot-smith-waite-v6';
 const CORE=['./','index.html','styles.css','app.js','cards.js','deep.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png'];
 
 self.window=self;
-importScripts('cards.js?v=5');
+importScripts('cards.js?v=6');
 const CARD_IMAGES=self.TAROT_CARDS.map(card=>card.image);
 delete self.window;
 

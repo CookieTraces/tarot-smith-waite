@@ -10,20 +10,23 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="icon" href="icon-192.png">
   <link rel="preconnect" href="https://raw.githubusercontent.com">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <header class="hero">
     <div class="hero__inner">
       <div class="topbar">
         <div class="eyebrow" data-i18n="eyebrow">Guía de consulta · 78 cartas</div>
-        <label class="language">
-          <span data-i18n="languageLabel">Idioma</span>
-          <select id="language" aria-label="Idioma">
-            <option value="es">Español</option>
-            <option value="en">English</option>
-          </select>
-        </label>
+        <div class="top-actions">
+          <button id="spreadsOpen" class="guide-link" type="button" data-i18n="spreadsGuide">Guía de tiradas</button>
+          <label class="language">
+            <span data-i18n="languageLabel">Idioma</span>
+            <select id="language" aria-label="Idioma">
+              <option value="es">Español</option>
+              <option value="en">English</option>
+            </select>
+          </label>
+        </div>
       </div>
       <h1>Tarot <span>Smith-Waite</span></h1>
       <div class="actions">
@@ -50,7 +53,7 @@
   </main>
 
   <footer>
-    <p data-i18n-html="source">Interpretaciones basadas en el dataset abierto de <a href="https://github.com/Tarotoo-com/tarotoo-tarot-dataset" target="_blank" rel="noreferrer">Tarotoo</a> (MIT), documentado a partir de A. E. Waite y otras fuentes históricas de la tradición Rider–Waite–Smith.</p>
+    <p data-i18n-html="source">Significados y métodos de lectura procedentes de <a href="https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot" target="_blank" rel="noreferrer"><cite>The Pictorial Key to the Tarot</cite></a>, A. E. Waite (1910/1911). La traducción española puede contrastarse con el original inglés incluido en cada carta.</p>
     <p data-i18n="disclaimer">Las cartas sirven como herramienta simbólica de reflexión; no sustituyen asesoramiento profesional.</p>
   </footer>
 
@@ -65,11 +68,6 @@
         <div class="switch" role="group" aria-label="Orientación de la carta">
           <button class="orientation active" data-orientation="upright" data-i18n="upright">Al derecho</button>
           <button class="orientation" data-orientation="reversed" data-i18n="reversed">Invertida</button>
-        </div>
-        <div class="tabs" role="tablist" aria-label="Tipo de interpretación">
-          <button class="tab active" role="tab" data-context="general" data-i18n="general">General</button>
-          <button class="tab" role="tab" data-context="love" data-i18n="love">Amor</button>
-          <button class="tab" role="tab" data-context="career" data-i18n="career">Trabajo</button>
         </div>
         <section class="reading">
           <div id="keywords" class="keywords"></div>
@@ -88,7 +86,6 @@
             <button id="deepClose" class="deep-close" type="button" data-i18n="deepClose">Cerrar</button>
           </div>
           <p class="deep-intro" data-i18n="deepIntro">Una traducción del texto que acompañó originalmente al mazo, separada de la interpretación moderna.</p>
-          <div id="correspondences" class="correspondences"></div>
           <div class="deep-block">
             <h4 data-i18n="symbolismTitle">Lo que muestra la imagen</h4>
             <p id="deepDescription"></p>
@@ -111,8 +108,112 @@
     </div>
   </dialog>
 
-  <script src="cards.js?v=2"></script>
-  <script src="deep.js?v=4"></script>
-  <script src="app.js?v=5"></script>
+  <dialog id="spreadsDialog" class="guide-dialog" aria-label="Guía de tiradas">
+    <button id="spreadsClose" class="close" aria-label="Cerrar">×</button>
+    <div class="guide-content">
+      <div data-guide-lang="es">
+        <div class="eyebrow">Métodos documentados · A. E. Waite</div>
+        <h2>Guía de tiradas</h2>
+        <p class="guide-intro">Estas instrucciones resumen fielmente los métodos publicados por Waite. Son prácticas históricas de cartomancia, no predicciones demostradas científicamente.</p>
+        <ul class="guide-principles"><li>Formula la pregunta de forma concreta y repítela en voz alta.</li><li>Intenta mantener la mente en blanco mientras barajas.</li><li>Reduce en lo posible tus prejuicios e ideas preconcebidas al interpretar.</li></ul>
+
+        <details class="spread" open>
+          <summary><span>Cruz Celta</span><small>Pregunta concreta · 10 cartas y significador</small></summary>
+          <div class="spread-body">
+            <p><strong>Preparación original:</strong> elige una carta que represente a la persona o el asunto —el “significador”— y colócala boca arriba. Baraja y corta el resto del mazo tres veces, manteniéndolo boca abajo.</p>
+            <div class="celtic-diagram" aria-label="Esquema de la Cruz Celta">
+              <span class="pos p3">3</span><span class="pos p5">5</span><span class="pos p1">1</span><span class="pos p2">2</span><span class="pos p6">6</span><span class="pos p4">4</span>
+              <span class="pos p10">10</span><span class="pos p9">9</span><span class="pos p8">8</span><span class="pos p7">7</span>
+            </div>
+            <p class="diagram-note">La carta 5 se coloca en el lado que queda a la espalda del significador y la 6 hacia donde mira. Si la imagen no tiene dirección, Waite indica decidirla antes de empezar.</p>
+            <ol class="positions">
+              <li><strong>Lo que cubre:</strong> influencia general y atmósfera del asunto.</li>
+              <li><strong>Lo que cruza:</strong> naturaleza de los obstáculos.</li>
+              <li><strong>Lo que corona:</strong> objetivo o ideal y lo mejor que puede alcanzarse, aún no realizado.</li>
+              <li><strong>Lo que está debajo:</strong> fundamento ya establecido del asunto.</li>
+              <li><strong>Lo que queda atrás:</strong> influencia recién pasada o que está desapareciendo.</li>
+              <li><strong>Lo que está delante:</strong> influencia que actuará en el futuro próximo.</li>
+              <li><strong>La persona o asunto:</strong> su posición o actitud en las circunstancias.</li>
+              <li><strong>La casa:</strong> entorno e influencias cercanas.</li>
+              <li><strong>Esperanzas o temores.</strong></li>
+              <li><strong>Lo que vendrá:</strong> resultado o culminación producida por las demás influencias.</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="spread">
+          <summary><span>Método de 42 cartas</span><small>Lectura general · 6 filas de 7</small></summary>
+          <div class="spread-body">
+            <ol class="steps">
+              <li>Baraja el mazo completo, dejando algunas cartas invertidas, y haz que la persona consultante corte con la mano izquierda.</li>
+              <li>Reparte 42 cartas boca arriba en seis paquetes consecutivos de siete.</li>
+              <li>Recoge los paquetes y redistribúyelos hasta formar siete paquetes de seis.</li>
+              <li>Toma la carta superior de cada paquete, barájalas y forma la primera fila de siete, de derecha a izquierda. Repite con las dos cartas siguientes para formar dos filas más y con las 21 restantes para formar otras tres.</li>
+              <li>Lee las seis filas de derecha a izquierda. Waite recomienda este método cuando no existe una pregunta concreta; si se pregunta por un periodo, debe fijarse antes de barajar.</li>
+            </ol>
+            <p class="historical-note">En su formulación histórica, Waite representa al consultante hombre con El Mago y a la mujer con La Sacerdotisa. Se documenta aquí tal como aparece en la fuente, no como una regla universal actual.</p>
+          </div>
+        </details>
+
+        <details class="spread">
+          <summary><span>Método de 35 cartas</span><small>Continuación del método de 42</small></summary>
+          <div class="spread-body">
+            <p>Waite lo propone únicamente para ampliar una duda que haya quedado después de la lectura de 42 cartas.</p>
+            <ol class="steps">
+              <li>Usa las 35 cartas que no se repartieron, barájalas y córtalas como antes.</li>
+              <li>Forma seis paquetes de 7, 6, 5, 4, 2 y 11 cartas.</li>
+              <li>Extiende cada paquete como una fila y lee de izquierda a derecha, empezando por la superior.</li>
+            </ol>
+            <ul class="line-meanings">
+              <li><strong>Fila 1:</strong> casa y entorno.</li><li><strong>Fila 2:</strong> persona o asunto.</li><li><strong>Fila 3:</strong> acontecimientos y personas externas.</li><li><strong>Fila 4:</strong> sorpresa o imprevisto.</li><li><strong>Fila 5:</strong> consuelo; puede moderar lo desfavorable.</li><li><strong>Fila 6:</strong> aclara los mensajes enigmáticos de las demás.</li>
+            </ul>
+          </div>
+        </details>
+
+        <p class="guide-source">Fuente completa: <a href="https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3" target="_blank" rel="noreferrer"><cite>The Pictorial Key to the Tarot</cite>, Parte III, §§ 6–9</a>.</p>
+      </div>
+
+      <div data-guide-lang="en" hidden>
+        <div class="eyebrow">Documented methods · A. E. Waite</div>
+        <h2>Spread guide</h2>
+        <p class="guide-intro">These instructions faithfully summarize Waite’s published methods. They are historical cartomancy practices, not scientifically demonstrated predictions.</p>
+        <ul class="guide-principles"><li>Formulate the question definitely and repeat it aloud.</li><li>Keep the mind as blank as possible while shuffling.</li><li>Set aside personal bias and preconceived ideas as far as possible.</li></ul>
+
+        <details class="spread" open>
+          <summary><span>Celtic Cross</span><small>Definite question · 10 cards and a significator</small></summary>
+          <div class="spread-body">
+            <p><strong>Original preparation:</strong> choose a card to represent the person or matter—the “Significator”—and place it face up. Shuffle and cut the remainder three times, keeping the cards face down.</p>
+            <div class="celtic-diagram" aria-label="Celtic Cross layout">
+              <span class="pos p3">3</span><span class="pos p5">5</span><span class="pos p1">1</span><span class="pos p2">2</span><span class="pos p6">6</span><span class="pos p4">4</span>
+              <span class="pos p10">10</span><span class="pos p9">9</span><span class="pos p8">8</span><span class="pos p7">7</span>
+            </div>
+            <p class="diagram-note">Card 5 goes on the side behind the Significator and card 6 on the side it faces. If the image has no direction, Waite says to choose one before beginning.</p>
+            <ol class="positions">
+              <li><strong>What covers:</strong> the general influence and atmosphere.</li><li><strong>What crosses:</strong> the nature of the obstacles.</li><li><strong>What crowns:</strong> the aim or ideal and the best attainable result not yet realized.</li><li><strong>What is beneath:</strong> the established foundation.</li><li><strong>What is behind:</strong> the influence just passed or passing away.</li><li><strong>What is before:</strong> the influence entering the near future.</li><li><strong>The person or matter:</strong> its position or attitude.</li><li><strong>The house:</strong> environment and nearby influences.</li><li><strong>Hopes or fears.</strong></li><li><strong>What will come:</strong> the result or culmination produced by the other influences.</li>
+            </ol>
+          </div>
+        </details>
+
+        <details class="spread">
+          <summary><span>Forty-two-card method</span><small>General reading · 6 rows of 7</small></summary>
+          <div class="spread-body">
+            <ol class="steps"><li>Shuffle the whole deck, reversing some cards, and have the Querent cut with the left hand.</li><li>Deal 42 cards face up into six consecutive packets of seven.</li><li>Take up the packets and redistribute them into seven packets of six.</li><li>Shuffle the top card of each packet and lay the first row of seven from right to left. Repeat with the next two cards for two more rows, then with the remaining 21 for three further rows.</li><li>Read all six rows from right to left. Waite recommends this method when no definite question is asked; specify any time period before shuffling.</li></ol>
+            <p class="historical-note">In Waite’s historical wording, a male Querent is represented by the Magician and a female Querent by the High Priestess. This records the source rather than presenting it as a universal modern rule.</p>
+          </div>
+        </details>
+
+        <details class="spread">
+          <summary><span>Thirty-five-card method</span><small>Continuation of the 42-card method</small></summary>
+          <div class="spread-body"><p>Waite gives this only as a way to pursue a doubt left after the 42-card reading.</p><ol class="steps"><li>Use the 35 undealt cards; shuffle and cut as before.</li><li>Make six packets of 7, 6, 5, 4, 2, and 11 cards.</li><li>Deal each packet as a row and read from left to right, starting with the upper row.</li></ol><ul class="line-meanings"><li><strong>Row 1:</strong> house and environment.</li><li><strong>Row 2:</strong> person or subject.</li><li><strong>Row 3:</strong> outside events and people.</li><li><strong>Row 4:</strong> surprise or the unexpected.</li><li><strong>Row 5:</strong> consolation; it may moderate adverse indications.</li><li><strong>Row 6:</strong> clarifies enigmatic messages in the other rows.</li></ul></div>
+        </details>
+
+        <p class="guide-source">Complete source: <a href="https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3" target="_blank" rel="noreferrer"><cite>The Pictorial Key to the Tarot</cite>, Part III, §§ 6–9</a>.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="cards.js?v=6"></script>
+  <script src="deep.js?v=6"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
