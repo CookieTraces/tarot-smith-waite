@@ -2,7 +2,6 @@
   "name": "Tarot Smith-Waite",
   "short_name": "Tarot Waite",
   "description": "Guía gratuita de las 78 cartas Smith-Waite",
-  "lang": "es",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

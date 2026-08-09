@@ -15,36 +15,44 @@
 <body>
   <header class="hero">
     <div class="hero__inner">
-      <div class="eyebrow">Guía de consulta · 78 cartas</div>
+      <div class="topbar">
+        <div class="eyebrow" data-i18n="eyebrow">Guía de consulta · 78 cartas</div>
+        <label class="language">
+          <span data-i18n="languageLabel">Idioma</span>
+          <select id="language" aria-label="Idioma">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+          </select>
+        </label>
+      </div>
       <h1>Tarot <span>Smith-Waite</span></h1>
-      <p>Significados claros al derecho y al revés. Sin registro, anuncios ni pagos.</p>
+      <p data-i18n="subtitle">Significados claros al derecho y al revés. Sin registro, anuncios ni pagos.</p>
       <div class="actions">
         <label class="search">
           <span aria-hidden="true">⌕</span>
           <input id="search" type="search" autocomplete="off" placeholder="Busca El Loco, The Fool, Queen of Cups…" aria-label="Buscar una carta">
         </label>
-        <button id="random" class="primary" type="button">✦ Sacar una carta</button>
       </div>
     </div>
   </header>
 
   <main>
     <nav class="filters" aria-label="Filtrar por palo">
-      <button class="chip active" data-filter="all">Todas</button>
-      <button class="chip" data-filter="major">Mayores</button>
-      <button class="chip" data-filter="wands">Bastos</button>
-      <button class="chip" data-filter="cups">Copas</button>
-      <button class="chip" data-filter="swords">Espadas</button>
-      <button class="chip" data-filter="pentacles">Oros</button>
+      <button class="chip active" data-filter="all" data-i18n="all">Todas</button>
+      <button class="chip" data-filter="major" data-i18n="major">Arcanos mayores</button>
+      <button class="chip" data-filter="wands" data-i18n="wands">Bastos</button>
+      <button class="chip" data-filter="cups" data-i18n="cups">Copas</button>
+      <button class="chip" data-filter="swords" data-i18n="swords">Espadas</button>
+      <button class="chip" data-filter="pentacles" data-i18n="pentacles">Oros</button>
     </nav>
     <div id="count" class="count" aria-live="polite"></div>
     <section id="grid" class="grid" aria-label="Cartas del tarot"></section>
-    <div id="empty" class="empty" hidden>No encuentro esa carta. Prueba el nombre en español o inglés.</div>
+    <div id="empty" class="empty" hidden data-i18n="empty">No encuentro esa carta. Prueba el nombre en español o inglés.</div>
   </main>
 
   <footer>
-    <p>Interpretaciones basadas en el dataset abierto de <a href="https://github.com/Tarotoo-com/tarotoo-tarot-dataset" target="_blank" rel="noreferrer">Tarotoo</a> (MIT), documentado a partir de A. E. Waite y otras fuentes históricas de la tradición Rider–Waite–Smith.</p>
-    <p>Las cartas sirven como herramienta simbólica de reflexión; no sustituyen asesoramiento profesional.</p>
+    <p data-i18n-html="source">Interpretaciones basadas en el dataset abierto de <a href="https://github.com/Tarotoo-com/tarotoo-tarot-dataset" target="_blank" rel="noreferrer">Tarotoo</a> (MIT), documentado a partir de A. E. Waite y otras fuentes históricas de la tradición Rider–Waite–Smith.</p>
+    <p data-i18n="disclaimer">Las cartas sirven como herramienta simbólica de reflexión; no sustituyen asesoramiento profesional.</p>
   </footer>
 
   <dialog id="cardDialog" aria-labelledby="dialogTitle">
@@ -56,18 +64,18 @@
         <h2 id="dialogTitle"></h2>
         <p id="dialogEnglish" class="english"></p>
         <div class="switch" role="group" aria-label="Orientación de la carta">
-          <button class="orientation active" data-orientation="upright">Al derecho</button>
-          <button class="orientation" data-orientation="reversed">Invertida</button>
+          <button class="orientation active" data-orientation="upright" data-i18n="upright">Al derecho</button>
+          <button class="orientation" data-orientation="reversed" data-i18n="reversed">Invertida</button>
         </div>
         <div class="tabs" role="tablist" aria-label="Tipo de interpretación">
-          <button class="tab active" role="tab" data-context="general">General</button>
-          <button class="tab" role="tab" data-context="love">Amor</button>
-          <button class="tab" role="tab" data-context="career">Trabajo</button>
+          <button class="tab active" role="tab" data-context="general" data-i18n="general">General</button>
+          <button class="tab" role="tab" data-context="love" data-i18n="love">Amor</button>
+          <button class="tab" role="tab" data-context="career" data-i18n="career">Trabajo</button>
         </div>
         <section class="reading">
           <div id="keywords" class="keywords"></div>
           <p id="meaning"></p>
-          <div class="reading-note"><strong>Cómo leerla:</strong> <span id="guidance"></span></div>
+          <div class="reading-note"><strong data-i18n="howToRead">Cómo leerla:</strong> <span id="guidance"></span></div>
         </section>
       </article>
     </div>
