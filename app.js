@@ -220,4 +220,4 @@ dialog.addEventListener('click', event => { if (event.target === dialog) dialog.
 dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
 
 applyLanguage();
-if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js?v=4'));
+if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js?v=5'));
